@@ -473,7 +473,8 @@ mysml::myTable1(d)</code></pre>
 ## 24 Week_ALC_type6     4   1651 45.18336070
 ## 25 Week_ALC_type6     5    282  7.71756979
 ## 26 Week_ALC_type6     6      5  0.13683634</code></pre>
-<pre class="r"><code># Huang et al. 2020 (script: cox.R)
+<pre class="r"><code># For functions &#39;logit&#39; and &#39;cox_first_degree&#39;, see:
+# https://github.com/easonfg/cali_tutorial, script &#39;cox.R&#39;.
 logit &lt;- function (p) log(p/(1 - p))
 
 cox_first_degree = function(y, p){
@@ -494,8 +495,8 @@ cox_first_degree = function(y, p){
 # R package pminternal: https://CRAN.R-project.org/package=pminternal
 # smp: summarize model performance
 smp &lt;- function(p, y, ...) {
-    # Huang et al. 2020
     # See Stevens et al. (2020): He mentions that Cox never called it &quot;calibration&quot;.
+    # https://doi.org/10.1016/j.jclinepi.2019.09.016
     coxOut &lt;- cox_first_degree(y=y, p=p)
     # See myBriers.R
     brier &lt;- mean((y - p)**2)
@@ -936,7 +937,8 @@ rf_predict &lt;- function(model, data, ...) {
 rf_app &lt;- rf_fun(data=d)
 rf_p &lt;- rf_predict(model=rf_app, data=d)
 
-# Huang et al. 2020 (script: cox.R)
+# For functions &#39;logit&#39; and &#39;cox_first_degree&#39;, see:
+# https://github.com/easonfg/cali_tutorial, script &#39;cox.R&#39;.
 logit &lt;- function (p) log(p/(1 - p))
 
 cox_first_degree = function(y, p){
@@ -956,8 +958,8 @@ cox_first_degree = function(y, p){
 
 # smp: summarize model performance
 smp &lt;- function(p, y, ...) {
-    # Huang et al. 2020
     # See Stevens et al. (2020): He mentions that Cox never called it &quot;calibration&quot;.
+    # https://doi.org/10.1016/j.jclinepi.2019.09.016
     coxOut &lt;- cox_first_degree(y=y, p=p)
     # See myBriers.R
     brier &lt;- mean((y - p)**2)
