@@ -856,7 +856,7 @@ pdcaDiscreteBoth$label &lt;- factor(pdcaDiscreteBoth$label,
                                  levels = c(&quot;Logistic regression&quot;, &quot;Random forest&quot;,
                                     &quot;Treat all&quot;, &quot;Treat none&quot;))
 
-dcaPlotLs &lt;- plotDCA(allDCA = pdcaDiscreteBoth, bothModels = TRUE, posDodgeWith = 0)
+dcaPlotLs &lt;- mysml::plotDCA(allDCA = pdcaDiscreteBoth, bothModels = TRUE, posDodgeWidth = 0)
 dcaPlotLs$dcaPlot2 # with selected interval</code></pre>
 <p><strong>References</strong></p>
 <p>Miché M (2026). <em>mysml: This Package Contains Supervised Machine
