@@ -872,36 +872,36 @@ learning tool, which possesses hyperparameters that can be tuned (in
 order to improve the prediction performance).</p>
 <pre class="r"><code># Define the hyperparameter grid
 hyperparams &lt;- base::expand.grid(
-    mtry = 3:7,                   # Number of variables to sample
+    mtry = 3:6,                   # Number of variables to sample
     splitrule = c(&quot;gini&quot;, &quot;extratrees&quot;), # Splitting rule
     min.node.size = c(1, 5, 10),         # Minimum node size
     num.trees = c(200, 500, 750, 1000)        # Number of trees
 )
-# Randomly pick 20 of the 120 possible hyperparameter sets:
+# Randomly pick 20 of the 96 possible hyperparameter sets:
 set.seed(5)
 randomGrid &lt;- sample(1:nrow(hyperparams), size=20)
 (hyperparams20 &lt;- hyperparams[randomGrid,])</code></pre>
-<pre><code>##     mtry  splitrule min.node.size num.trees
-## 66     3 extratrees             1       750
-## 107    4 extratrees             5      1000
-## 57     4 extratrees            10       500
-## 79     6 extratrees             5       750
-## 75     7       gini             5       750
-## 41     3       gini             5       500
-## 85     7       gini            10       750
-## 94     6       gini             1      1000
-## 71     3       gini             5       750
-## 19     6 extratrees             5       200
-## 3      5       gini             1       200
-## 38     5 extratrees             1       500
-## 58     5 extratrees            10       500
-## 47     4 extratrees             5       500
-## 53     5       gini            10       500
-## 76     3 extratrees             5       750
-## 16     3 extratrees             5       200
-## 26     3 extratrees            10       200
-## 101    3       gini             5      1000
-## 27     4 extratrees            10       200</code></pre>
+<pre><code>##    mtry  splitrule min.node.size num.trees
+## 66    4       gini            10       750
+## 57    3       gini             5       750
+## 79    5 extratrees             1      1000
+## 75    5       gini             1      1000
+## 41    3       gini            10       500
+## 85    3 extratrees             5      1000
+## 71    5 extratrees            10       750
+## 19    5       gini            10       200
+## 3     5       gini             1       200
+## 38    4 extratrees             5       500
+## 58    4       gini             5       750
+## 47    5 extratrees            10       500
+## 53    3 extratrees             1       750
+## 76    6       gini             1      1000
+## 16    6 extratrees             5       200
+## 26    4       gini             1       500
+## 27    5       gini             1       500
+## 73    3       gini             1      1000
+## 74    4       gini             1      1000
+## 51    5       gini             1       750</code></pre>
 <p>Running the following code, produced the result ‘hyperResLs’, which
 has been visualized in Supplementary Figure 5.</p>
 <pre class="r"><code>rf_fun &lt;- function(data, ...) {
